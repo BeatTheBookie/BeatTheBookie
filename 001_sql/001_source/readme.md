@@ -1,6 +1,6 @@
-Folder contains SQL scripts to import source data for BeatTheBookie into an Exasol DB.
 
-Football source data can be downloaded under:
-- football-data.co.uk
+SQL Sources for:
+- data structures to store source data from football-data.co.uk
+- import processes for historic source data from football-data.co.uk
+  (local CSV path must be adapted)
 
-Local path for CSV files must be adapted.
