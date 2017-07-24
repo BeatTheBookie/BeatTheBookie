@@ -5,14 +5,13 @@
 	- for link with historic matches in division
 	- for home / away attack strenght & defence weakness
 	
-v1:
-	- initial
+v1: - initial
 	- feature calcutlation
 		- 30 match_history
 
-v2:
-	- changed name
+v2: - changed name
 	
+v3: - num zero games added	
 
 		
 *************************************************/
@@ -41,7 +40,11 @@ select
 	(home_str.home_attacking_strength * away_str.away_defence_strength * home_str.avg_league_goals_for) home_expect_goals,
 	(away_str.away_attacking_strength * home_str.home_defence_strength * away_str.avg_league_goals_for) away_expect_goals,
 	home_str.num_games home_num_games,
-	away_str.num_games away_num_games
+	away_str.num_games away_num_games,
+	home_str.league_num_games home_league_num_games,
+	away_str.league_num_games away_league_num_games,
+	home_str.league_num_zero_games home_league_num_zero_games,
+	away_str.league_num_zero_games away_league_num_zero_games
 from
 	--match combinations
 	betting_dv.football_match_his_l fixtures
@@ -54,9 +57,8 @@ from
 			match_date,
 			football_team_home_hid,
 			league_num_games,
-			league_num_zero_games,
 			num_games,
-			num_zero_games,
+			league_num_zero_games,
 			avg_team_goals_for,
 			avg_team_goals_against,
 			avg_league_goals_for,
@@ -71,9 +73,8 @@ from
 				match_date,
 				football_team_home_hid,
 				count(match_date) over (partition by football_division_hid, football_season_hid, match_date) league_num_games,
-				sum(case when goals_for = 0 then 1 else 0 end) over (partition by football_division_hid, football_season_hid, match_date) league_num_zero_games,
 				count(match_date) over (partition by football_division_hid, football_season_hid, match_date, football_team_home_hid) num_games,
-				sum(case when goals_for = 0 then 1 else 0 end) over (partition by football_division_hid, football_season_hid, match_date, football_team_home_hid) num_zero_games,
+				sum(case when goals_for = 0 then 1 else 0 end) over (partition by football_division_hid, football_season_hid, match_date) league_num_zero_games,
 				avg(goals_for) over (partition by football_division_hid, football_season_hid, match_date, football_team_home_hid) avg_team_goals_for,
 				avg(goals_against) over (partition by football_division_hid, football_season_hid, match_date, football_team_home_hid) avg_team_goals_against,
 				avg(goals_for) over (partition by football_division_hid, football_season_hid, match_date) avg_league_goals_for,
@@ -128,9 +129,8 @@ from
 			match_date,
 			football_team_away_hid,
 			league_num_games,
-			league_num_zero_games,
 			num_games,
-			num_zero_games,
+			league_num_zero_games,
 			avg_team_goals_for,
 			avg_team_goals_against,
 			avg_league_goals_for,
@@ -145,9 +145,8 @@ from
 				match_date,
 				football_team_away_hid,
 				count(match_date) over (partition by football_division_hid, football_season_hid, match_date) league_num_games,
-				sum(case when goals_for = 0 then 1 else 0 end) over (partition by football_division_hid, football_season_hid, match_date) league_num_zero_games,
 				count(match_date) over (partition by football_division_hid, football_season_hid, match_date, football_team_away_hid) num_games,
-				sum(case when goals_for = 0 then 1 else 0 end) over (partition by football_division_hid, football_season_hid, match_date, football_team_away_hid) num_zero_games,
+				sum(case when goals_for = 0 then 1 else 0 end) over (partition by football_division_hid, football_season_hid, match_date) league_num_zero_games,
 				avg(goals_for) over (partition by football_division_hid, football_season_hid, match_date, football_team_away_hid) avg_team_goals_for,
 				avg(goals_against) over (partition by football_division_hid, football_season_hid, match_date, football_team_away_hid) avg_team_goals_against,
 				avg(goals_for) over (partition by football_division_hid, football_season_hid, match_date) avg_league_goals_for,
