@@ -46,17 +46,3 @@ function run (ctx)
 end
 /
 ;
-
-/*
-create or replace r scalar script betting_dv.r_zip(p_x double, p_mean double,p_prob_extra_zero number) returns double
-as
-library("VGAM")
-run <- function(ctx)
-{
-	dzipois(ctx$p_x, ctx$p_mean, ctx$p_prob_extra_zero)
-}
-/
-*/
-
-
-
