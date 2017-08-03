@@ -16,7 +16,7 @@ v1:
 *************************************************/
 
 
---drop view betting_dv.football_match_his_l_s_zip_probs;
+--drop view betting_dv.football_match_cur_l_s_zip_probs;
 
 create or replace view betting_dv.football_match_cur_l_s_zip_probs
 as
