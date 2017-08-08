@@ -8,8 +8,7 @@
 v1.0:
 	- intial
 	- views logic:
-		- 4 match history
-		- brier score for bet365 odds
+		- 5 match history
 		- brier score for pinnacle odds
 		
 			
@@ -33,7 +32,7 @@ select
 from
 	--match combinations
 	betting_dv.football_match_his_l fixtures
-	--home-gs-rating
+	--home brier scores
 	join
 		(
 		--aggregate brier scores
@@ -88,12 +87,12 @@ from
 				stat.full_time_result is not null
 			)
 		where
-			--last X home games
+			--last 5 home games
 			match_rang <= 5
 		group by
 			football_match_his_lid
 		having
-			--X home games must exist
+			--5 home games must exist
 			count(*) = 5	
 		) home_his
 	on (fixtures.football_match_his_lid = home_his.football_match_his_lid)
@@ -157,7 +156,7 @@ from
 		group by
 			football_match_his_lid
 		having
-			--X home games must exist
+			--5 away games must exist
 			count(*) = 5
 		) away_his
 	on (fixtures.football_match_his_lid = away_his.football_match_his_lid)
