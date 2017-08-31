@@ -9,7 +9,7 @@ v1.0:
 	- intial
 	- views logic:
 		- 5 match history
-		- brier score for pinnacle odds
+		- brier score for bet365 odds
 		
 			
 *************************************************/
@@ -47,9 +47,9 @@ from
 			(
 			select
 				lnk.football_match_his_lid,
-				round(1 / odds.pinacle_home_odds,4) home_prob,
-				round(1 / odds.pinacle_draw_odds,4) draw_prob,
-				round(1 / odds.pinalce_away_odds,4) away_prob,
+				round(1 / odds.bet365_home_odds,4) home_prob,
+				round(1 / odds.bet365_draw_odds,4) draw_prob,
+				round(1 / odds.bet365_away_odds,4) away_prob,
 				local.home_prob + local.draw_prob + local.away_prob all_probs,
 				round(local.home_prob / (local.home_prob + local.draw_prob + local.away_prob),4) home_prob_wo_marg,
 				round(local.draw_prob / (local.home_prob + local.draw_prob + local.away_prob),4) draw_prob_wo_marg,
@@ -111,9 +111,9 @@ from
 			(
 			select
 				lnk.football_match_his_lid,
-				round(1 / odds.pinacle_home_odds,4) home_prob,
-				round(1 / odds.pinacle_draw_odds,4) draw_prob,
-				round(1 / odds.pinalce_away_odds,4) away_prob,
+				round(1 / odds.bet365_home_odds,4) home_prob,
+				round(1 / odds.bet365_draw_odds,4) draw_prob,
+				round(1 / odds.bet365_away_odds,4) away_prob,
 				local.home_prob + local.draw_prob + local.away_prob all_probs,
 				round(local.home_prob / (local.home_prob + local.draw_prob + local.away_prob),4) home_prob_wo_marg,
 				round(local.draw_prob / (local.home_prob + local.draw_prob + local.away_prob),4) draw_prob_wo_marg,
