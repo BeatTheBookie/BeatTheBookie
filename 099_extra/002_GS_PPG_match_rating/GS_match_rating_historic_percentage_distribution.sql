@@ -26,7 +26,7 @@ from
 			betting_dv.football_match_his_l his
 			join betting_dv.football_match_his_l_s_statistic stat
 				on (his.football_match_his_lid = stat.football_match_his_lid)
-			join betting_dv.football_match_his_l_s_gs_match_rating rating
+			join betting_dv.football_match_his_l_s_rating_features_7 rating
 				on (his.football_match_his_lid = rating.football_match_his_lid)
 			join betting_dv.football_season_h season
 				on (his.football_season_hid = season.football_season_hid)
