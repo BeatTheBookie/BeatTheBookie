@@ -9,5 +9,8 @@ Directories:
 002_reports
   - external reports for analysis
   
+003_r_code
+  - R programs
+  
 099_extra
   - Sources and additional informations for blog posts
