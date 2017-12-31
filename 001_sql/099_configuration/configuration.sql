@@ -18,3 +18,4 @@ create schema dq_mart;
 
 create schema sandbox;
 
+create schema meta;
