@@ -1,1 +1,1 @@
-Additional files for different tasks
+Additional files (SQL, R) for blog posts
