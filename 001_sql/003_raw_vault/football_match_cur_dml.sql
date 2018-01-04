@@ -7,6 +7,9 @@ v1.0:
 	- ELT for tables
 		- football_match_cur_ref
 		
+v2.0:
+	- changes to Squawka current matches
+		
 
 
 *************************************************/
@@ -40,7 +43,7 @@ select
 	current_timestamp,
 	'load FOOTBALL_MATCH_CUR_L'
 from
-	stage.football_cur_matches cur
+	stage.squawka_cur_fixtures cur
 	join raw_dv.football_team_h team_home
 		on (cur.team_home = team_home.team)
 	join raw_dv.football_team_h team_away
