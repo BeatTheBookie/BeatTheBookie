@@ -1,7 +1,8 @@
 ############################################
-# GS Match-Rating
+# PPG Match-Rating
 # - linear regression
 # - polynomial regression
+# - polynomial regression without outliers
 #
 ###########################################
 
