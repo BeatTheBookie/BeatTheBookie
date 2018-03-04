@@ -178,7 +178,10 @@ for (row in 1:nrow(matchday_data)) {
 		gs.train_data = exa.readData(con,gs.train_sql)
 		ppg.train_data = exa.readData(con,ppg.train_sql)
 		
+				
 		#linear regression
+		print("--Building linear regression")
+		
 		gs.lin_regr_home = lm(HOME_WIN_PERC ~ GS_MATCH_RATING, data=gs.train_data)
 		gs.lin_regr_draw = lm(DRAW_PERC ~ GS_MATCH_RATING, data=gs.train_data)
 		gs.lin_regr_away = lm(AWAY_WIN_PERC ~ GS_MATCH_RATING, data=gs.train_data)
@@ -188,6 +191,8 @@ for (row in 1:nrow(matchday_data)) {
 		ppg.lin_regr_away = lm(AWAY_WIN_PERC ~ PPG_MATCH_RATING, data=ppg.train_data)
 		
 		#polynomial regression
+		print("--Building polynomial regression")
+		
 		gs.poly_regr_home = lm(HOME_WIN_PERC ~ poly(GS_MATCH_RATING,2), data=gs.train_data)
 		gs.poly_regr_draw = lm(DRAW_PERC ~ poly(GS_MATCH_RATING,2), data=gs.train_data)
 		gs.poly_regr_away = lm(AWAY_WIN_PERC ~ poly(GS_MATCH_RATING,2), data=gs.train_data)
@@ -197,6 +202,8 @@ for (row in 1:nrow(matchday_data)) {
 		ppg.poly_regr_away = lm(AWAY_WIN_PERC ~ poly(PPG_MATCH_RATING,2), data=ppg.train_data)
 		
 		#calculating cooks distance
+		print("--Detecting outliers")
+		
 		gs.cooksd_home <- cooks.distance(gs.poly_regr_home)
 		gs.cooksd_draw <- cooks.distance(gs.poly_regr_draw)
 		gs.cooksd_away <- cooks.distance(gs.poly_regr_away)
@@ -204,6 +211,8 @@ for (row in 1:nrow(matchday_data)) {
 		ppg.cooksd_home <- cooks.distance(ppg.poly_regr_home)
 		ppg.cooksd_draw <- cooks.distance(ppg.poly_regr_draw)
 		ppg.cooksd_away <- cooks.distance(ppg.poly_regr_away)
+		
+		print("--Building polynomial regression wo. outliers")
 		
 		#build new train data frames without outliers
 		gs.train_data.woo_home <- gs.train_data[-as.numeric(names(gs.cooksd_home[(gs.cooksd_home>2*mean(gs.cooksd_home, na.rm=T))])),]
@@ -226,6 +235,8 @@ for (row in 1:nrow(matchday_data)) {
 	}
   
 	print(paste("-Predicting probabilities for matchday", matchday))
+	
+	print("--Loading prediction data")
   
 	#build sql
 	gs.pred_sql <- paste(" 
@@ -278,6 +289,7 @@ for (row in 1:nrow(matchday_data)) {
 	ppg.pred_data = exa.readData(con,ppg.pred_sql)
 	
 	#linear regression prediction
+	print("--Predict linear regression")
 	gs.lin_pred_data <- gs.pred_data
 	gs.lin_pred_data$PROB_HOME_WIN <- predict(gs.lin_regr_home, gs.lin_pred_data)
 	gs.lin_pred_data$PROB_DRAW <- predict(gs.lin_regr_draw, gs.lin_pred_data)
@@ -289,6 +301,7 @@ for (row in 1:nrow(matchday_data)) {
 	ppg.lin_pred_data$PROB_AWAY_WIN <- predict(ppg.lin_regr_away, ppg.lin_pred_data)
 	
 	#polynomial regression prediction
+	print("--Predict polynomial regression")
 	gs.poly_pred_data <- gs.pred_data
 	gs.poly_pred_data$PROB_HOME_WIN <- predict(gs.poly_regr_home, gs.poly_pred_data)
 	gs.poly_pred_data$PROB_DRAW <- predict(gs.poly_regr_draw, gs.poly_pred_data)
@@ -300,6 +313,7 @@ for (row in 1:nrow(matchday_data)) {
 	ppg.poly_pred_data$PROB_AWAY_WIN <- predict(ppg.poly_regr_away, ppg.poly_pred_data)
 
 	#polynomial (wo outliers) regression prediction
+	print("--Predict polynomial regression wo outliers")
 	gs.poly_woo_pred_data <- gs.pred_data
 	gs.poly_woo_pred_data$PROB_HOME_WIN <- predict(gs.poly_regr_home_woo, gs.poly_woo_pred_data)
 	gs.poly_woo_pred_data$PROB_DRAW <- predict(gs.poly_regr_draw_woo, gs.poly_woo_pred_data)
@@ -311,6 +325,7 @@ for (row in 1:nrow(matchday_data)) {
 	ppg.poly_woo_pred_data$PROB_AWAY_WIN <- predict(ppg.poly_regr_away_woo, ppg.poly_woo_pred_data)
 		
 	#correct probabilities
+	print("--Correct probabilities")
 	#check sum
 	gs.lin_pred_data$CHECK_SUM <- gs.lin_pred_data$PROB_HOME_WIN + gs.lin_pred_data$PROB_DRAW + gs.lin_pred_data$PROB_AWAY_WIN 
 	ppg.lin_pred_data$CHECK_SUM <- ppg.lin_pred_data$PROB_HOME_WIN + ppg.lin_pred_data$PROB_DRAW + ppg.lin_pred_data$PROB_AWAY_WIN
@@ -379,18 +394,20 @@ for (row in 1:nrow(matchday_data)) {
 	ppg.pred_data$POLY_REGR_WOO_PROB_DRAW     <- ppg.poly_woo_pred_data$COR_PROB_DRAW
 	ppg.pred_data$POLY_REGR_WOO_PROB_AWAY_WIN <- ppg.poly_woo_pred_data$COR_PROB_AWAY_WIN
 	
+	print("--Writing predicted probs to sandbox")
+	
 	#for first prediction target table has to be created
 	if (row == 1) {
 	
-	  #write to target table
-	  EXAWriteTable(con = con, schema = 'SANDBOX', tbl_name = 'FOOTBALL_MATCH_HIS_L_S_GS_RATING_PROBS',	             overwrite = 'TRUE', data = gs.pred_data)
-  
-    EXAWriteTable(con = con, schema = 'SANDBOX', tbl_name = 'FOOTBALL_MATCH_HIS_L_S_PPG_RATING_PROBS',                overwrite = 'TRUE', data = ppg.pred_data)	  
+		#write to target table
+		EXAWriteTable(con = con, schema = 'SANDBOX', tbl_name = 'FOOTBALL_MATCH_HIS_L_S_GS_RATING_PROBS',	             overwrite = 'TRUE', data = gs.pred_data)
+		EXAWriteTable(con = con, schema = 'SANDBOX', tbl_name = 'FOOTBALL_MATCH_HIS_L_S_PPG_RATING_PROBS',                overwrite = 'TRUE', data = ppg.pred_data)	  
+	
 	} else {
-	  #any futher predictions are just added
-	  EXAWriteTable(con = con, schema = 'SANDBOX', tbl_name = 'FOOTBALL_MATCH_HIS_L_S_GS_RATING_PROBS',	                overwrite = 'FALSE', data = gs.pred_data)
-	  
-	  EXAWriteTable(con = con, schema = 'SANDBOX', tbl_name = 'FOOTBALL_MATCH_HIS_L_S_PPG_RATING_PROBS',overwrite = 'FALSE', data = ppg.pred_data)	
+	
+		#any futher predictions are just added
+		EXAWriteTable(con = con, schema = 'SANDBOX', tbl_name = 'FOOTBALL_MATCH_HIS_L_S_GS_RATING_PROBS',	                overwrite = 'FALSE', data = gs.pred_data)
+	    EXAWriteTable(con = con, schema = 'SANDBOX', tbl_name = 'FOOTBALL_MATCH_HIS_L_S_PPG_RATING_PROBS',overwrite = 'FALSE', data = ppg.pred_data)	
 	  
 	}
 		
