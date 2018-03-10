@@ -1,8 +1,7 @@
 
 /************************************************
-	script for ZIP calculation 
-	with R Package VGAM
-	(zero inflated poisson distribution)
+	script for geometric mean calculation 
+	with R
 	
 v1.0:
 	- initial
@@ -15,12 +14,13 @@ v1.0:
 
 	
 
-create or replace r scalar script betting_dv.r_zip(p_x double, p_mean double,p_prob_extra_zero number) returns double
+create or replace r set script betting_dv.geo_mean(p_input double) returns double
 as
-library("VGAM")
+
 run <- function(ctx)
 {
-	dzipois(ctx$p_x, ctx$p_mean, ctx$p_prob_extra_zero)
+	ctx$next_row(NA)
+	exp(mean(log(ctx$p_input)))
 }
 /
 ;
