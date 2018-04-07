@@ -1,4 +1,4 @@
---MACD analysis for Cologne
+
 with matches as
 (
 select
@@ -40,36 +40,59 @@ order by
 ema_26 as
 (
 select
-	betting_dv.ema(home_team, match_date, full_time_home_goals, 26)
+	group_param team,
+	to_date(order_param, 'yyyymmdd') match_date,
+	ema
 from
-	matches
-group by
-	home_team
+	(
+	select
+		betting_dv.ema(home_team, to_char(match_date,'yyyymmdd'), full_time_home_goals, 26)
+	from
+		matches
+	group by
+		home_team
+	)
 ),
 ema_12 as
 (
 select
-	betting_dv.ema(home_team, match_date, full_time_home_goals, 12)
+	group_param team,
+	to_date(order_param, 'yyyymmdd') match_date,
+	ema
 from
-	matches
-group by
-	home_team
+	(
+	select
+		betting_dv.ema(home_team, to_char(match_date,'yyyymmdd'), full_time_home_goals, 12)
+	from
+		matches
+	group by
+		home_team
+	)
 ),
 signal as 
 (
 select
-	betting_dv.ema(team, match_date, macd_line, 9)
+	group_param team,
+	to_date(order_param, 'yyyymmdd') match_date,
+	ema
 from
 	(
 	select
-		ema_26.team,
-		ema_26.match_date,
-		ema_12.ema - ema_26.ema macd_line
+		betting_dv.ema(team, to_char(match_date,'yyyymmdd'), macd_line, 9)
 	from
-		ema_26
-		join ema_12
-			on ema_26.team = ema_12.team and
-				ema_26.match_date = ema_12.match_date
+		(
+		select
+			ema_26.team,
+			ema_26.match_date,
+			ema_12.ema - ema_26.ema macd_line
+		from
+			ema_26
+			join ema_12
+				on ema_26.team = ema_12.team and
+					ema_26.match_date = ema_12.match_date
+		)
+	group by
+		team
 	)
 )
 select
