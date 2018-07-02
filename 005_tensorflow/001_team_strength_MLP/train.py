@@ -6,7 +6,7 @@ import tflearn
 
 
 #Build connection
-v_Con = pyexasol.connect(dsn='192.168.164.130:8563', user='sys', password = 'exasol', schema = 'BETTING_DV', compression=True)
+v_Con = pyexasol.connect(dsn='[IP]:8563', user='[username]', password = '[password]', schema = 'BETTING_DV', compression=True)
 
 #read train data
 df_data = v_Con.export_to_pandas("""
