@@ -2,7 +2,7 @@ import pyexasol
 import pandas
 
 #connect to database
-Con = pyexasol.connect(dsn='192.168.164.130:8563', user='sys', password = 'exasol', schema = 'SANDBOX', compression=True)
+Con = pyexasol.connect(dsn='[IP]:8563', user='[user]', password = '[password]', schema = 'SANDBOX', compression=True)
 
 #create empty copy of current fixtures tabl
 Con.execute("Create table SANDBOX.CUR_FIXTURES as SELECT * FROM STAGE.SQUAWKA_CUR_FIXTURES where 1=0")
