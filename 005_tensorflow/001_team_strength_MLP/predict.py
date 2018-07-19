@@ -5,7 +5,7 @@ import tflearn
 
 
 #Build connection
-v_Con = pyexasol.connect(dsn='192.168.164.130:8563', user='sys', password = 'exasol', schema = 'SANDBOX', compression=True)
+v_Con = pyexasol.connect(dsn='[IP]:8563', user='[user]', password = '[password]', schema = 'SANDBOX', compression=True)
 
 #read prediction data set
 df_data = v_Con.export_to_pandas("""
