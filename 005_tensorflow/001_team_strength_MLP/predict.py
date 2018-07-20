@@ -60,7 +60,7 @@ v_net = tflearn.regression(v_net,
 model = tflearn.DNN(v_net)
 
 #load saved weights
-model.load('C:/Users/ado/Documents/betting db/099_dokumentation/Tensorflow/v01/trained_model/relu_adam_001.tf_model')
+model.load('C:/temp/Tensorflow/v01/relu_adam_001.tf_model')
 
 #prediction
 prediction = model.predict(df_data[df_data.columns[1:5]])
