@@ -99,4 +99,4 @@ model.fit(df_x_train.values, df_y_train.values,
 
 
 #save the model
-model.save('C:/Users/ado/Documents/betting db/099_dokumentation/Tensorflow/v01/relu_adam_001.tf_model')
+model.save('C:/temp/Tensorflow/v01/relu_adam_001.tf_model')
