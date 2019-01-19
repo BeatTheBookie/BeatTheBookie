@@ -50,6 +50,8 @@ create table stage.football_his
 	AWAY_SHOTS					decimal(3),
 	HOME_SHOTS_TARGET			decimal(3),
 	AWAY_SHOTS_TARGET			decimal(3),
+	home_freekicks_conceded		decimal(3),
+	away_freekicks_conceded		decimal(3),
 	HOME_FOULS					decimal(3),
 	AWAY_FOULS					decimal(3),
 	HOME_CORNERS				decimal(3),
