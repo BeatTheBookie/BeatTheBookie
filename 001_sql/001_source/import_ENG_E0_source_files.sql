@@ -3,6 +3,273 @@
 	Premier League Historie 2015/16
 ************************************/
 
+
+
+
+
+--premier league 2018/19
+drop table if exists source_files.ENG_E0_2018_19;
+
+create table source_files.ENG_E0_2018_19
+	(
+	Division					varchar(20),
+	Match_Date					varchar(20),
+	HomeTeam 					varchar(20),
+	AwayTeam					varchar(20),
+	full_time_home_goals		varchar(20),
+	full_time_away_goals		varchar(20),
+	full_time_result			varchar(20),
+	half_time_home_goals		varchar(20),
+	half_time_away_goals		varchar(20),
+	half_time_result			varchar(20),
+	referee						varchar(50),
+	home_shots					varchar(20),
+	away_shots					varchar(20),
+	home_shots_target			varchar(20),
+	away_shots_target			varchar(20),
+	home_fouls					varchar(20),
+	away_fouls					varchar(20),
+	home_corners				varchar(20),
+	away_corners				varchar(20),
+	home_yellow					varchar(20),
+	away_yellow					varchar(20),
+	home_red					varchar(20),
+	away_red					varchar(20),
+	bet365_home_odds			varchar(20),
+	bet365_draw_odds			varchar(20),
+	bet365_away_odds			varchar(20),
+	bet_win_home_odds			varchar(20),
+	bet_win_draw_odds			varchar(20),
+	bet_win_away_odds			varchar(20),
+	interwetten_home_odds		varchar(20),
+	interwetten_draw_odds		varchar(20),
+	interwetten_away_odds		varchar(20),
+	pinacle_home_odds			varchar(20),
+	pinacle_draw_odds			varchar(20),
+	pinacle_away_odds			varchar(20),
+	william_hill_home_odds		varchar(20),
+	william_hill_draw_odds		varchar(20),
+	william_hill_away_odds		varchar(20),
+	vc_bet_home_odds			varchar(20),
+	vc_bet_draw_odds			varchar(20),
+	vc_bet_away_odds			varchar(20),
+	betbrain_num_1X2			varchar(20),
+	betbrain_max_home_odds		varchar(20),
+	betbrain_avg_home_odds		varchar(20),
+	betbrain_max_draw_odds		varchar(20),
+	betbrein_avg_draw_odds		varchar(20),
+	betbrain_max_away_odds		varchar(20),
+	betbrain_avg_away_odds		varchar(20),
+	betbrain_num_ou				varchar(20),
+	betbrain_max_o25			varchar(20),
+	betbrain_avg_o25			varchar(20),
+	betbrain_max_u25			varchar(20),
+	betbrain_avg_u25			varchar(20),
+	betbrain_num_asian_h		varchar(20),
+	betbrain_size_asian_h		varchar(20),
+	betbrain_max_asian_h_home	varchar(20),
+	betbrain_avg_asian_h_home	varchar(20),
+	betbrain_max_asian_h_away	varchar(20),
+	betbrain_avg_asian_h_away	varchar(20),
+	pinacle_closing_home						varchar(20),
+	pinacle_closing_draw						varchar(20),
+	pinacle_closing_away						varchar(20)
+	);
+	
+
+
+--http://www.football-data.co.uk/mmz4281/1819/E0.csv
+
+import into source_files.ENG_E0_2018_19
+	from csv 
+	at 'http://www.football-data.co.uk/mmz4281/1819'
+	file 'E0.csv'
+	column separator = ','
+	row separator = 'CRLF'
+	skip=1;	
+
+	
+	
+--premier league 2017/18
+drop table if exists source_files.ENG_E0_2017_18;
+
+create table source_files.ENG_E0_2017_18
+	(
+	Division					varchar(20),
+	Match_Date					varchar(20),
+	HomeTeam 					varchar(20),
+	AwayTeam					varchar(20),
+	full_time_home_goals		varchar(20),
+	full_time_away_goals		varchar(20),
+	full_time_result			varchar(20),
+	half_time_home_goals		varchar(20),
+	half_time_away_goals		varchar(20),
+	half_time_result			varchar(20),
+	referee						varchar(50),
+	home_shots					varchar(20),
+	away_shots					varchar(20),
+	home_shots_target			varchar(20),
+	away_shots_target			varchar(20),
+	home_fouls					varchar(20),
+	away_fouls					varchar(20),
+	home_corners				varchar(20),
+	away_corners				varchar(20),
+	home_yellow					varchar(20),
+	away_yellow					varchar(20),
+	home_red					varchar(20),
+	away_red					varchar(20),
+	bet365_home_odds			varchar(20),
+	bet365_draw_odds			varchar(20),
+	bet365_away_odds			varchar(20),
+	bet_win_home_odds			varchar(20),
+	bet_win_draw_odds			varchar(20),
+	bet_win_away_odds			varchar(20),
+	interwetten_home_odds		varchar(20),
+	interwetten_draw_odds		varchar(20),
+	interwetten_away_odds		varchar(20),
+	ladbrokes_home_odds			varchar(20),
+	ladbrokes_draw_odds			varchar(20),
+	ladbrokes_away_odds			varchar(20),
+	pinacle_home_odds			varchar(20),
+	pinacle_draw_odds			varchar(20),
+	pinalce_away_odds			varchar(20),
+	william_hill_home_odds		varchar(20),
+	william_hill_draw_odds		varchar(20),
+	william_hill_away_odds		varchar(20),
+	vc_bet_home_odds			varchar(20),
+	vc_bet_draw_odds			varchar(20),
+	vc_bet_away_odds			varchar(20),
+	betbrain_num_1X2			varchar(20),
+	betbrain_max_home_odds		varchar(20),
+	betbrain_avg_home_odds		varchar(20),
+	betbrain_max_draw_odds		varchar(20),
+	betbrein_avg_draw_odds		varchar(20),
+	betbrain_max_away_odds		varchar(20),
+	betbrain_avg_away_odds		varchar(20),
+	betbrain_num_ou				varchar(20),
+	betbrain_max_o25			varchar(20),
+	betbrain_avg_o25			varchar(20),
+	betbrain_max_u25			varchar(20),
+	betbrain_avg_u25			varchar(20),
+	betbrain_num_asian_h		varchar(20),
+	betbrain_size_asian_h		varchar(20),
+	betbrain_max_asian_h_home	varchar(20),
+	betbrain_avg_asian_h_home	varchar(20),
+	betbrain_max_asian_h_away	varchar(20),
+	betbrain_avg_asian_h_away	varchar(20),
+	empty_1						varchar(20),
+	empty_2						varchar(20),
+	empty_3						varchar(20)
+	);
+	
+
+--http://www.football-data.co.uk/mmz4281/1718/E0.csv
+
+
+import into source_files.ENG_E0_2017_18
+	from csv 
+	at 'http://www.football-data.co.uk/mmz4281/1718'
+	file 'E0.csv'
+	column separator = ','
+	row separator = 'CRLF'
+	skip=1;	
+
+
+
+
+drop table source_files.ENG_E0_2016_17;
+
+create table source_files.ENG_E0_2016_17
+	(
+	Division					varchar(20),
+	Match_Date					varchar(20),
+	HomeTeam 					varchar(20),
+	AwayTeam					varchar(20),
+	full_time_home_goals		varchar(20),
+	full_time_away_goals		varchar(20),
+	full_time_result			varchar(20),
+	half_time_home_goals		varchar(20),
+	half_time_away_goals		varchar(20),
+	half_time_result			varchar(20),
+	referee						varchar(50),
+	home_shots					varchar(20),
+	away_shots					varchar(20),
+	home_shots_target			varchar(20),
+	away_shots_target			varchar(20),
+	home_fouls					varchar(20),
+	away_fouls					varchar(20),
+	home_corners				varchar(20),
+	away_corners				varchar(20),
+	home_yellow					varchar(20),
+	away_yellow					varchar(20),
+	home_red					varchar(20),
+	away_red					varchar(20),
+	bet365_home_odds			varchar(20),
+	bet365_draw_odds			varchar(20),
+	bet365_away_odds			varchar(20),
+	bet_win_home_odds			varchar(20),
+	bet_win_draw_odds			varchar(20),
+	bet_win_away_odds			varchar(20),
+	interwetten_home_odds		varchar(20),
+	interwetten_draw_odds		varchar(20),
+	interwetten_away_odds		varchar(20),
+	ladbrokes_home_odds			varchar(20),
+	ladbrokes_draw_odds			varchar(20),
+	ladbrokes_away_odds			varchar(20),
+	pinacle_home_odds			varchar(20),
+	pinacle_draw_odds			varchar(20),
+	pinalce_away_odds			varchar(20),
+	william_hill_home_odds		varchar(20),
+	william_hill_draw_odds		varchar(20),
+	william_hill_away_odds		varchar(20),
+	vc_bet_home_odds			varchar(20),
+	vc_bet_draw_odds			varchar(20),
+	vc_bet_away_odds			varchar(20),
+	betbrain_num_1X2			varchar(20),
+	betbrain_max_home_odds		varchar(20),
+	betbrain_avg_home_odds		varchar(20),
+	betbrain_max_draw_odds		varchar(20),
+	betbrein_avg_draw_odds		varchar(20),
+	betbrain_max_away_odds		varchar(20),
+	betbrain_avg_away_odds		varchar(20),
+	betbrain_num_ou				varchar(20),
+	betbrain_max_o25			varchar(20),
+	betbrain_avg_o25			varchar(20),
+	betbrain_max_u25			varchar(20),
+	betbrain_avg_u25			varchar(20),
+	betbrain_num_asian_h		varchar(20),
+	betbrain_size_asian_h		varchar(20),
+	betbrain_max_asian_h_home	varchar(20),
+	betbrain_avg_asian_h_home	varchar(20),
+	betbrain_max_asian_h_away	varchar(20),
+	betbrain_avg_asian_h_away	varchar(20),
+	empty_1						varchar(20),
+	empty_2						varchar(20),
+	empty_3						varchar(20)
+	);
+	
+
+--www.football-data.co.uk/mmz4281/1617/E0.csv
+
+
+import into source_files.ENG_E0_2016_17
+	from csv 
+	at 'www.football-data.co.uk/mmz4281/1617'
+	file 'E0.csv'
+	column separator = ','
+	row separator = 'CRLF'
+	skip=1;	
+
+/*	
+import into source_files.ENG_E0_2016_17
+	from local csv file 'C:\Users\ado\Documents\betting db\001_quelldaten\003_england\ENG_E0_2016_17.csv'
+	column separator = ','
+	row separator = 'CRLF'
+	skip=1;
+*/
+
+
+
 drop table source_files.ENG_E0_2015_16;
 
 create table source_files.ENG_E0_2015_16

@@ -3,6 +3,245 @@
 	Bundesliga Historie 2015/16
 ***********************************/
 
+
+
+--2. bundesliga 2018/19
+drop table source_files.GER_D2_2018_19;
+
+create table source_files.GER_D2_2018_19
+	(
+	Division					varchar(20),
+	Match_Date					varchar(20),
+	HomeTeam 					varchar(20),
+	AwayTeam					varchar(20),
+	full_time_home_goals		varchar(20),
+	full_time_away_goals		varchar(20),
+	full_time_result			varchar(20),
+	half_time_home_goals		varchar(20),
+	half_time_away_goals		varchar(20),
+	half_time_result			varchar(20),
+	home_shots					varchar(20),
+	away_shots					varchar(20),
+	home_shots_target			varchar(20),
+	away_shots_target			varchar(20),
+	home_fouls					varchar(20),
+	away_fouls					varchar(20),
+	home_corners				varchar(20),
+	away_corners				varchar(20),
+	home_yellow					varchar(20),
+	away_yellow					varchar(20),
+	home_red					varchar(20),
+	away_red					varchar(20),
+	bet365_home_odds			varchar(20),
+	bet365_draw_odds			varchar(20),
+	bet365_away_odds			varchar(20),
+	bet_win_home_odds			varchar(20),
+	bet_win_draw_odds			varchar(20),
+	bet_win_away_odds			varchar(20),
+	interwetten_home_odds		varchar(20),
+	interwetten_draw_odds		varchar(20),
+	interwetten_away_odds		varchar(20),
+	pinacle_home_odds			varchar(20),
+	pinacle_draw_odds			varchar(20),
+	pinalce_away_odds			varchar(20),
+	william_hill_home_odds		varchar(20),
+	william_hill_draw_odds		varchar(20),
+	william_hill_away_odds		varchar(20),
+	vc_bet_home_odds			varchar(20),
+	vc_bet_draw_odds			varchar(20),
+	vc_bet_away_odds			varchar(20),
+	betbrain_num_1X2			varchar(20),
+	betbrain_max_home_odds		varchar(20),
+	betbrain_avg_home_odds		varchar(20),
+	betbrain_max_draw_odds		varchar(20),
+	betbrein_avg_draw_odds		varchar(20),
+	betbrain_max_away_odds		varchar(20),
+	betbrain_avg_away_odds		varchar(20),
+	betbrain_num_ou				varchar(20),
+	betbrain_max_o25			varchar(20),
+	betbrain_avg_o25			varchar(20),
+	betbrain_max_u25			varchar(20),
+	betbrain_avg_u25			varchar(20),
+	betbrain_num_asian_h		varchar(20),
+	betbrain_size_asian_h		varchar(20),
+	betbrain_max_asian_h_home	varchar(20),
+	betbrain_avg_asian_h_home	varchar(20),
+	betbrain_max_asian_h_away	varchar(20),
+	betbrain_avg_asian_h_away	varchar(20),
+	pinacle_home_closing		varchar(20),
+	pinacle_draw_closing		varchar(20),
+	pinacle_away_closing		varchar(20)
+	);
+
+--http://www.football-data.co.uk/mmz4281/1819/D2.csv
+
+import into source_files.GER_D2_2018_19
+	from csv 
+	at 'www.football-data.co.uk/mmz4281/1819'
+	file 'D2.csv'
+	column separator = ','
+	row separator = 'CRLF'
+	skip=1;
+
+
+
+
+--2. bundesliga 2017/18
+drop table source_files.GER_D2_2017_18;
+
+create table source_files.GER_D2_2017_18
+	(
+	Division					varchar(20),
+	Match_Date					varchar(20),
+	HomeTeam 					varchar(20),
+	AwayTeam					varchar(20),
+	full_time_home_goals		varchar(20),
+	full_time_away_goals		varchar(20),
+	full_time_result			varchar(20),
+	half_time_home_goals		varchar(20),
+	half_time_away_goals		varchar(20),
+	half_time_result			varchar(20),
+	home_shots					varchar(20),
+	away_shots					varchar(20),
+	home_shots_target			varchar(20),
+	away_shots_target			varchar(20),
+	home_fouls					varchar(20),
+	away_fouls					varchar(20),
+	home_corners				varchar(20),
+	away_corners				varchar(20),
+	home_yellow					varchar(20),
+	away_yellow					varchar(20),
+	home_red					varchar(20),
+	away_red					varchar(20),
+	bet365_home_odds			varchar(20),
+	bet365_draw_odds			varchar(20),
+	bet365_away_odds			varchar(20),
+	bet_win_home_odds			varchar(20),
+	bet_win_draw_odds			varchar(20),
+	bet_win_away_odds			varchar(20),
+	interwetten_home_odds		varchar(20),
+	interwetten_draw_odds		varchar(20),
+	interwetten_away_odds		varchar(20),
+	ladbrokes_home_odds			varchar(20),
+	ladbrokes_draw_odds			varchar(20),
+	ladbrokes_away_odds			varchar(20),
+	pinacle_home_odds			varchar(20),
+	pinacle_draw_odds			varchar(20),
+	pinalce_away_odds			varchar(20),
+	william_hill_home_odds		varchar(20),
+	william_hill_draw_odds		varchar(20),
+	william_hill_away_odds		varchar(20),
+	vc_bet_home_odds			varchar(20),
+	vc_bet_draw_odds			varchar(20),
+	vc_bet_away_odds			varchar(20),
+	betbrain_num_1X2			varchar(20),
+	betbrain_max_home_odds		varchar(20),
+	betbrain_avg_home_odds		varchar(20),
+	betbrain_max_draw_odds		varchar(20),
+	betbrein_avg_draw_odds		varchar(20),
+	betbrain_max_away_odds		varchar(20),
+	betbrain_avg_away_odds		varchar(20),
+	betbrain_num_ou				varchar(20),
+	betbrain_max_o25			varchar(20),
+	betbrain_avg_o25			varchar(20),
+	betbrain_max_u25			varchar(20),
+	betbrain_avg_u25			varchar(20),
+	betbrain_num_asian_h		varchar(20),
+	betbrain_size_asian_h		varchar(20),
+	betbrain_max_asian_h_home	varchar(20),
+	betbrain_avg_asian_h_home	varchar(20),
+	betbrain_max_asian_h_away	varchar(20),
+	betbrain_avg_asian_h_away	varchar(20),
+	pinacle_home_closing		varchar(20),
+	pinacle_draw_closing		varchar(20),
+	pinacle_away_closing		varchar(20)
+	);
+
+--www.football-data.co.uk/mmz4281/1617/D2.csv
+--http://www.football-data.co.uk/mmz4281/1718/D2.csv
+
+import into source_files.GER_D2_2017_18
+	from csv 
+	at 'www.football-data.co.uk/mmz4281/1718'
+	file 'D2.csv'
+	column separator = ','
+	row separator = 'CRLF'
+	skip=1;
+
+
+
+--2. bundesliga 2016/17
+drop table source_files.GER_D2_2016_17;
+
+create table source_files.GER_D2_2016_17
+	(
+	Division					varchar(20),
+	Match_Date					varchar(20),
+	HomeTeam 					varchar(20),
+	AwayTeam					varchar(20),
+	full_time_home_goals		varchar(20),
+	full_time_away_goals		varchar(20),
+	full_time_result			varchar(20),
+	half_time_home_goals		varchar(20),
+	half_time_away_goals		varchar(20),
+	half_time_result			varchar(20),
+	bet365_home_odds			varchar(20),
+	bet365_draw_odds			varchar(20),
+	bet365_away_odds			varchar(20),
+	bet_win_home_odds			varchar(20),
+	bet_win_draw_odds			varchar(20),
+	bet_win_away_odds			varchar(20),
+	interwetten_home_odds		varchar(20),
+	interwetten_draw_odds		varchar(20),
+	interwetten_away_odds		varchar(20),
+	ladbrokes_home_odds			varchar(20),
+	ladbrokes_draw_odds			varchar(20),
+	ladbrokes_away_odds			varchar(20),
+	pinacle_home_odds			varchar(20),
+	pinacle_draw_odds			varchar(20),
+	pinalce_away_odds			varchar(20),
+	william_hill_home_odds		varchar(20),
+	william_hill_draw_odds		varchar(20),
+	william_hill_away_odds		varchar(20),
+	vc_bet_home_odds			varchar(20),
+	vc_bet_draw_odds			varchar(20),
+	vc_bet_away_odds			varchar(20),
+	betbrain_num_1X2			varchar(20),
+	betbrain_max_home_odds		varchar(20),
+	betbrain_avg_home_odds		varchar(20),
+	betbrain_max_draw_odds		varchar(20),
+	betbrein_avg_draw_odds		varchar(20),
+	betbrain_max_away_odds		varchar(20),
+	betbrain_avg_away_odds		varchar(20),
+	betbrain_num_ou				varchar(20),
+	betbrain_max_o25			varchar(20),
+	betbrain_avg_o25			varchar(20),
+	betbrain_max_u25			varchar(20),
+	betbrain_avg_u25			varchar(20),
+	betbrain_num_asian_h		varchar(20),
+	betbrain_size_asian_h		varchar(20),
+	betbrain_max_asian_h_home	varchar(20),
+	betbrain_avg_asian_h_home	varchar(20),
+	betbrain_max_asian_h_away	varchar(20),
+	betbrain_avg_asian_h_away	varchar(20),
+	PSCH_unkown					varchar(20),
+	PSCD_unkown					varchar(20),
+	PSCA_unkown					varchar(20)
+	);
+
+--www.football-data.co.uk/mmz4281/1617/D2.csv
+
+
+import into source_files.GER_D2_2016_17
+	from csv 
+	at 'www.football-data.co.uk/mmz4281/1617'
+	file 'D2.csv'
+	column separator = ','
+	row separator = 'CRLF'
+	skip=1;	
+
+	
+	
 drop table source_files.GER_D2_2015_16;
 
 create table source_files.GER_D2_2015_16
