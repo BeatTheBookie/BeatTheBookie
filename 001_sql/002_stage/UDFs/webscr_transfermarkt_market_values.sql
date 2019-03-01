@@ -40,7 +40,7 @@ def run(ctx):
 	v_year_select = soup.find('div', attrs={'class': 'inline-select'})
 	v_year_list = v_year_select.findAll('option')
 	
-	i=0
+	i = 0
 
 	for v_year in v_year_list:
 		v_season_id = (v_year["value"])
