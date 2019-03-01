@@ -1,19 +1,219 @@
-﻿FOOTBALL_DATA;SQUAWKA
-Augsburg;Augsburg
-Bayern Munich;Bayern
-Dortmund;Dortmund
-Ein Frankfurt;Frankfurt
-FC Koln;1. FC Köln
-Freiburg;Freiburg
-Hamburg;Hamburg
-Hannover;Hannover
-Hertha;Hertha BSC
-Hoffenheim;Hoffenheim
-Leverkusen;Leverkusen
-M'gladbach;M'gladbach
-Mainz;Mainz
-RB Leipzig;RB Leipzig
-Schalke 04;Schalke
-Stuttgart;Stuttgart
-Werder Bremen;Werder
-Wolfsburg;Wolfsburg
+﻿FOOTBALL_DATA;SQUAWKA;TRANSFERMARKT
+Heidenheim;;1.FC Heidenheim
+Kaiserslautern;;1.FC K'lautern
+FC Koln;;1.FC Köln
+Magdeburg;;1.FC Magdeburg
+Nurnberg;1.FC Nürnberg;1.FC Nürnberg
+Mainz;Mainz;1.FSV Mainz 05
+Munich 1860;;1860 München
+Ajaccio;;AC Ajaccio
+Arles;;AC Arles
+Fiorentina;;AC Florenz
+Le Havre;;AC Le Havre
+Milan;;AC Mailand
+Sunderland;;AFC Sunderland
+Auxerre;;AJ Auxerre
+Livorno;;AS Livorno
+Monaco;;AS Monaco
+Nancy;;AS Nancy
+Roma;;AS Rom
+St Etienne;;AS St.-Etienne
+Aachen;;Alem. Aachen
+Bielefeld;;Arm. Bielefeld
+Ascoli;;Ascoli
+Aston Villa;;Aston Villa
+Atalanta;;Atal. Bergamo
+Ath Bilbao;;Athletic Bilbao
+Ath Madrid;;Atletico Madrid
+Bari;;Bari
+Leverkusen;Leverkusen;Bay. Leverkusen
+Bayern Munich;Bayern;Bayern München
+Benevento;;Benevento
+Betis;;Betis Sevilla
+Birmingham;;Birmingham City
+Blackburn;;Blackburn Rov.
+Blackpool;;Blackpool
+Bolton;;Bolton Wand.
+Dortmund;Dortmund;Bor. Dortmund
+M'gladbach;M'gladbach;Bor. M'gladbach
+Bournemouth;;Bournemouth
+Brescia;;Brescia
+Brighton;;Brighton & Hove
+Osasuna;;CA Osasuna
+Leganes;;CD Leganes
+Numancia;;CD Numancia
+Tenerife;;CD Teneriffa
+Sedan;;CS Sedan
+Cagliari;;Cagliari Calcio
+Cardiff;;Cardiff City
+CZ Jena;;Carl Zeiss Jena
+Carpi;;Carpi
+Catania;;Catania Calcio
+Celta;;Celta Vigo
+Cesena;;Cesena
+Charlton;;Charlton Athl.
+Chievo;;Chievo Verona
+Crystal Palace;;Crystal Palace
+Pescara;;Delfino Pescara
+Alaves;;Dep. Alaves
+La Coruna;;Dep. La Coruna
+Xerez;;Deportivo Xerez
+Derby;;Derby County
+Dresden;;Dynamo Dresden
+Braunschweig;;E. Braunschweig
+Ein Frankfurt;Frankfurt;E. Frankfurt
+Guingamp;;EA Guingamp
+Troyes;;ES Troyes AC
+Cottbus;;Energie Cottbus
+Erzgebirge Aue;;Erzgebirge Aue
+Espanol;;Esp. Barcelona
+Fortuna Dusseldorf;Fortuna Düsseldorf;F. Düsseldorf
+Arsenal;;FC Arsenal
+Augsburg;Augsburg;FC Augsburg
+Barcelona;;FC Barcelona
+Bologna;;FC Bologna
+Burnley;;FC Burnley
+Chelsea;;FC Chelsea
+Crotone;;FC Crotone
+Cadiz;;FC Cadiz
+Cordoba;;FC Cordoba
+Elche;;FC Elche
+Empoli;;FC Empoli
+Everton;;FC Everton
+Fulham;;FC Fulham
+Genoa;;FC Genua
+Getafe;;FC Getafe
+Girona;;FC Girona
+Granada;;FC Granada
+Ingolstadt;;FC Ingolstadt
+Liverpool;;FC Liverpool
+Lorient;;FC Lorient
+Metz;;FC Metz
+Malaga;;FC Malaga
+Nantes;;FC Nantes
+Portsmouth;;FC Portsmouth
+Reading;;FC Reading
+Schalke 04;Schalke;FC Schalke 04
+Sevilla;;FC Sevilla
+Sochaux;;FC Sochaux
+Southampton;;FC Southampton
+St Pauli;;FC St. Pauli
+Toulouse;;FC Toulouse
+Torino;;FC Turin
+Valencia;;FC Valencia
+Villarreal;;FC Villarreal
+Watford;;FC Watford
+Evian Thonon Gaillard;;FC Evian
+Dijon;;FCO Dijon
+Frankfurt FSV;;FSV Frankfurt
+Frosinone;;Frosinone Calc.
+Bordeaux;;G. Bordeaux
+Ajaccio GFCO;;GFC Ajaccio
+Gimnastic;;Gimnastic
+Grenoble;;Grenoble
+Greuther Furth;;Greuther Fürth
+Montpellier;;HSC Montpellier
+Hamburg;Hamburg;Hamburger SV
+Hannover;Hannover;Hannover 96
+Hansa Rostock;;Hansa Rostock
+Verona;;Hellas Verona
+Hertha;Hertha BSC;Hertha BSC
+Holstein Kiel;;Holstein Kiel
+Huddersfield;;Huddersfield
+Hull;;Hull City
+Hercules;;Hercules
+Inter;;Inter
+Inter;;Inter Mailand
+Regensburg;;Jahn Regensburg
+Juventus;;Juventus Turin
+Offenbach;;K. Offenbach
+Karlsruhe;;Karlsruher SC
+Lille;;LOSC Lille
+Ahlen;;LR Ahlen
+Lazio;;Lazio Rom
+Le Mans;;Le Mans UC 72
+Leicester;;Leicester City
+Duisburg;;MSV Duisburg
+Man City;;Manchester City
+Man United;;Manchester Utd.
+Messina;;Messina Peloro
+Middlesbrough;;Middlesbrough
+Newcastle;;Newcastle Utd.
+Norwich;;Norwich City
+Novara;;Novara Calcio
+Nimes;;Nimes Olympique
+Nice;;OGC Nizza
+Marseille;;Ol. Marseille
+Lyon;;Olympique Lyon
+Paris SG;;Paris SG
+Parma;;Parma
+Parma;;Parma Calcio
+QPR;;QPR
+Strasbourg;;R. Straßburg
+RB Leipzig;RB Leipzig;RB Leipzig
+Lens;;RC Lens
+Mallorca;;RCD Mallorca
+Essen;;RW Essen
+Oberhausen;;RW Oberhausen
+Santander;;Rac. Santander
+Vallecano;;Rayo Vallecano
+Real Madrid;;Real Madrid
+Murcia;;Real Murcia
+Saragossa;;Real Saragossa
+Sociedad;;Real Sociedad
+Valladolid;;Real Valladolid
+Recreativo;;Recr. Huelva
+Reggina;;Reggina
+Ahlen;;Rot Weiss Ahlen
+Amiens;;SC Amiens
+Bastia;;SC Bastia
+Freiburg;Freiburg;SC Freiburg
+Paderborn;;SC Paderborn
+Angers;;SCO Angers
+Eibar;;SD Eibar
+Huesca;;SD Huesca
+Caen;;SM Caen
+Spal;;SPAL
+Napoli;;SSC Neapel
+Darmstadt;;SV Darmstadt 98
+Sandhausen;;SV Sandhausen
+Saarbrucken;;Saarbrücken
+Sampdoria;;Sampdoria
+Sheffield United;;Sheffield Utd.
+Siena;;Siena
+Siegen;;Spfr. Siegen
+Sp Gijon;;Sporting Gijon
+Brest;;Stade Brest 29
+Reims;;Stade Reims
+Rennes;;Stade Rennes
+Stoke;;Stoke City
+Swansea;;Swansea City
+Hoffenheim;Hoffenheim;TSG Hoffenheim
+Tottenham;;Tottenham
+Treviso;;Treviso
+Koblenz;;TuS Koblenz
+Almeria;;UD Almeria
+Las Palmas;;UD Las Palmas
+Levante;;UD Levante
+Boulogne;;US Boulogne
+Lecce;;US Lecce
+Palermo;;US Palermo
+Sassuolo;;US Sassuolo
+Udinese;;Udinese
+Udinese;;Udinese Calcio
+Union Berlin;;Union Berlin
+Unterhaching;;Unterhaching
+Valenciennes;;Valenciennes FC
+Stuttgart;;VfB Stuttgart
+Bochum;;VfL Bochum
+Osnabruck;;VfL Osnabruck
+Wolfsburg;Wolfsburg;VfL Wolfsburg
+Aalen;;VfR Aalen
+Burghausen;;W. Burghausen
+Wehen;;Wehen Wiesbaden
+Werder Bremen;Werder;Werder Bremen
+West Brom;;West Brom
+West Ham;;West Ham Utd.
+Wigan;;Wigan Athletic
+Wolves;;Wolverhampton
+Wurzburger Kickers;;Würzb. Kickers
