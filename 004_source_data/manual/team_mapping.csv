@@ -17,14 +17,14 @@ Livorno;;AS Livorno
 Monaco;;AS Monaco
 Nancy;;AS Nancy
 Roma;;AS Rom
-St Etienne;;AS St.-Etienne
+St Etienne;;AS St.-Étienne
 Aachen;;Alem. Aachen
 Bielefeld;;Arm. Bielefeld
 Ascoli;;Ascoli
 Aston Villa;;Aston Villa
 Atalanta;;Atal. Bergamo
 Ath Bilbao;;Athletic Bilbao
-Ath Madrid;;Atletico Madrid
+Ath Madrid;;Atlético Madrid
 Bari;;Bari
 Leverkusen;Leverkusen;Bay. Leverkusen
 Bayern Munich;Bayern;Bayern München
@@ -40,7 +40,7 @@ Bournemouth;;Bournemouth
 Brescia;;Brescia
 Brighton;;Brighton & Hove
 Osasuna;;CA Osasuna
-Leganes;;CD Leganes
+Leganes;;CD Leganés
 Numancia;;CD Numancia
 Tenerife;;CD Teneriffa
 Sedan;;CS Sedan
@@ -55,7 +55,7 @@ Charlton;;Charlton Athl.
 Chievo;;Chievo Verona
 Crystal Palace;;Crystal Palace
 Pescara;;Delfino Pescara
-Alaves;;Dep. Alaves
+Alaves;;Dep. Alavés
 La Coruna;;Dep. La Coruna
 Xerez;;Deportivo Xerez
 Derby;;Derby County
@@ -76,7 +76,7 @@ Burnley;;FC Burnley
 Chelsea;;FC Chelsea
 Crotone;;FC Crotone
 Cadiz;;FC Cadiz
-Cordoba;;FC Cordoba
+Cordoba;;FC Córdoba
 Elche;;FC Elche
 Empoli;;FC Empoli
 Everton;;FC Everton
@@ -89,7 +89,7 @@ Ingolstadt;;FC Ingolstadt
 Liverpool;;FC Liverpool
 Lorient;;FC Lorient
 Metz;;FC Metz
-Malaga;;FC Malaga
+Malaga;;FC Málaga
 Nantes;;FC Nantes
 Portsmouth;;FC Portsmouth
 Reading;;FC Reading
@@ -103,13 +103,13 @@ Torino;;FC Turin
 Valencia;;FC Valencia
 Villarreal;;FC Villarreal
 Watford;;FC Watford
-Evian Thonon Gaillard;;FC Evian
+Evian Thonon Gaillard;;FC Évian
 Dijon;;FCO Dijon
 Frankfurt FSV;;FSV Frankfurt
 Frosinone;;Frosinone Calc.
 Bordeaux;;G. Bordeaux
 Ajaccio GFCO;;GFC Ajaccio
-Gimnastic;;Gimnastic
+Gimnastic;;Gimnàstic
 Grenoble;;Grenoble
 Greuther Furth;;Greuther Fürth
 Montpellier;;HSC Montpellier
@@ -121,7 +121,7 @@ Hertha;Hertha BSC;Hertha BSC
 Holstein Kiel;;Holstein Kiel
 Huddersfield;;Huddersfield
 Hull;;Hull City
-Hercules;;Hercules
+Hercules;;Hércules
 Inter;;Inter
 Inter;;Inter Mailand
 Regensburg;;Jahn Regensburg
@@ -141,7 +141,7 @@ Middlesbrough;;Middlesbrough
 Newcastle;;Newcastle Utd.
 Norwich;;Norwich City
 Novara;;Novara Calcio
-Nimes;;Nimes Olympique
+Nimes;;Nîmes Olympique
 Nice;;OGC Nizza
 Marseille;;Ol. Marseille
 Lyon;;Olympique Lyon
@@ -182,7 +182,7 @@ Sampdoria;;Sampdoria
 Sheffield United;;Sheffield Utd.
 Siena;;Siena
 Siegen;;Spfr. Siegen
-Sp Gijon;;Sporting Gijon
+Sp Gijon;;Sporting Gijón
 Brest;;Stade Brest 29
 Reims;;Stade Reims
 Rennes;;Stade Rennes
@@ -192,7 +192,7 @@ Hoffenheim;Hoffenheim;TSG Hoffenheim
 Tottenham;;Tottenham
 Treviso;;Treviso
 Koblenz;;TuS Koblenz
-Almeria;;UD Almeria
+Almeria;;UD Almería
 Las Palmas;;UD Las Palmas
 Levante;;UD Levante
 Boulogne;;US Boulogne
@@ -206,7 +206,7 @@ Unterhaching;;Unterhaching
 Valenciennes;;Valenciennes FC
 Stuttgart;;VfB Stuttgart
 Bochum;;VfL Bochum
-Osnabruck;;VfL Osnabruck
+Osnabruck;;VfL Osnabrück
 Wolfsburg;Wolfsburg;VfL Wolfsburg
 Aalen;;VfR Aalen
 Burghausen;;W. Burghausen
