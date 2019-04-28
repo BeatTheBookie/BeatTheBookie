@@ -12,5 +12,14 @@ Directories:
 003_r_code
   - R programs
   
+004_source_data
+  - additional source files
+  
+005_tensorflow
+  - tensorflow models & scripts
+
+006_python
+  - python sources
+  
 099_extra
   - Sources and additional informations for blog posts
