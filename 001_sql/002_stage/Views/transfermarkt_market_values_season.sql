@@ -17,21 +17,21 @@ as
 select
   a.division,
   b.football_data team,
-  to_char(a.season) || '_' || to_char(to_number(a.season)+1) season,
+  a.season,
   a.num_players,
   a.team_market_value team_market_value_char,
   case
     when instr(a.team_market_value,'Mio') > 0 then
-      to_number(replace(substr(a.team_market_value,1,instr(a.team_market_value,'Mio')-2),',','.')) * 1000000
+      cast((replace(substr(a.team_market_value,1,instr(a.team_market_value,'Mio')-2),',','.') * 1000000) as decimal(20,0))
     when instr(a.team_market_value,'Mrd') > 0 then
-      to_number(replace(substr(a.team_market_value,1,instr(a.team_market_value,'Mrd')-2),',','.')) * 1000000000
-    else a.team_market_value
+      cast((replace(substr(a.team_market_value,1,instr(a.team_market_value,'Mrd')-2),',','.') * 1000000000) as decimal(20,0))
+    else cast(a.team_market_value as decimal(20,0))
   end team_market_value_num
 from
   (SELECT
-      stage.webscr_transfermarkt_market_values(DIVISION, URL, 1)
+      stage.webscr_transfermarkt_market_values_season(DIVISION, URL, 1)
   FROM
-      META.TRANSFERMARKT_MARKET_VALUE_CONFIG) a
+      META.TRANSFERMARKT_MARKET_VALUE_SEASON_CONFIG) a
   left join stage.team_mapping b
     on a.team = b.transfermarkt
 ;
