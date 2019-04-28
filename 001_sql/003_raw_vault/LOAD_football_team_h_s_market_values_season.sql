@@ -1,5 +1,5 @@
 /************************************************
-	DML statement to load 
+	DML statement to load market value satellite
 	
 v1.0:
 	- initial 
@@ -7,59 +7,21 @@ v1.0:
 	
 *************************************************/
 
-drop table if exists raw_dv.football_team_h_s_market_values_season;
-drop view if exists raw_dv.football_team_h_s_market_values_season_cur;
-drop view if exists raw_dv.football_team_h_s_market_values_season_his;
-
---satellite for market values
-create table raw_dv.football_team_h_s_market_values_season
-  (
-  football_team_hid   char(32),
-  valid_from          timestamp,
-  num_players         decimal(10,2),
-  team_market_value   decimal(20,0),
-  ldts                timestamp,
-  distribute by football_team_hid
-  )
-;
-
-  
-
---current view
-create or replace view raw_dv.football_team_h_s_market_values_season_cur
-as
-select
-  FOOTBALL_TEAM_HID,
-  VALID_FROM,
-  to_date('31.12.9999','dd.mm.yyyy') VALID_TO,
-  NUM_PLAYERS,
-  TEAM_MARKET_VALUE,
-  LDTS
-from
-  raw_dv.football_team_h_s_market_values_season
+--Load market value satellite
+insert into raw_dv.football_team_h_s_market_values_season tgt
+SELECT 
+  hash_md5(src.team) football_team_hid,
+  --to_date('01.07.' || src.season,'dd.mm.yyyy') valid_from, --historic load 
+  current_date valid_from, --for normal loading process
+  src.num_players,
+  src.team_market_value_num,
+  current_timestamp LDTS   
+FROM 
+  stage.TRANSFERMARKT_MARKET_VALUES_SEASON src 
+  left join betting_dv.football_team_h_s_market_values_season_cur tgt
+    on hash_md5(src.team) = tgt.football_team_hid       
 where
-  (FOOTBALL_TEAM_HID, VALID_FROM) in (
-                                  select
-                                    football_team_hid,
-                                    max(valid_from)
-                                  from
-                                    raw_dv.football_team_h_s_market_values_season
-                                  group by
-                                    football_team_hid
-                                   )
+  --delta?
+  src.num_players <> nvl(tgt.num_players,-1) or
+  src.team_market_value_num <> nvl(tgt.team_market_value,-1)
 ;
-
---create historic view
-create or replace view betting_dv.football_team_h_s_market_values_season_his
-as
-select
-  FOOTBALL_TEAM_HID,
-  VALID_FROM,
-  nvl(lead(valid_from-1) over (partition by football_team_hid order by valid_from), to_date('31.12.9999','dd.mm.yyyy')) VALID_TO,
-  NUM_PLAYERS,
-  TEAM_MARKET_VALUE,
-  LDTS
-from
-  raw_dv.football_team_h_s_market_values_season
-;
-
