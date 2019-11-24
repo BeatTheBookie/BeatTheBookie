@@ -1,0 +1,30 @@
+
+/****
+
+Sandbox table for Python understat webscaper script
+for seasonal match data
+
+****/
+
+CREATE TABLE SANDBOX.UNDERSTAT_MATCH_TEAM_STATS
+    (
+        SEASON VARCHAR(100),
+        DIVISION VARCHAR(100),
+        MATCH_DATE DATE,
+        HOME_TEAM VARCHAR(100),
+        AWAY_TEAM VARCHAR(100),
+        HOME_GOALS VARCHAR(100),
+        AWAY_GOALS VARCHAR(100),
+        HOME_XGOALS VARCHAR(100),
+        AWAY_XGOALS VARCHAR(100),
+        HOME_SHOTS VARCHAR(100),
+        AWAY_SHOTS VARCHAR(100),
+        HOME_SHOTS_ON_TARGET VARCHAR(100),
+        AWAY_SHOTS_ON_TARGET VARCHAR(100),
+        HOME_DEEP VARCHAR(100),
+        AWAY_DEEP VARCHAR(100),
+        HOME_PPDA VARCHAR(100),
+        AWAY_PPDA VARCHAR(100),
+        HOME_XPTS VARCHAR(100),
+        AWAY_XPTS VARCHAR(100)
+    );
