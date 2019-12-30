@@ -12,6 +12,7 @@ from selenium import webdriver
 Con = pyexasol.connect(dsn='192.168.164.130:8563', user='sys', password = 'exasol', schema = 'sandbox', compression=True)
 
 #empty dictionary
+#
 v_rows = 0
 df_data = []
 
@@ -24,21 +25,20 @@ chrome_options.add_argument("window-size=1024,768")
 chrome_options.add_argument("--no-sandbox")
 
 
-
 ####
 #different urls
 
 #Bundesliga current season
-#v_url = 'https://understat.com/league/Bundesliga/2014'
+#v_url = 'https://understat.com/league/Bundesliga/2019'
 
-#v_season = '2014_2015'
+#v_season = '2019_2020'
 #v_division = 'D1'
 
 #Premier League
-#v_url = 'https://understat.com/league/EPL/2014'
+v_url = 'https://understat.com/league/EPL/2019'
 
-#v_season = '2014_2015'
-#v_division = 'E0'
+v_season = '2019_2020'
+v_division = 'E0'
 
 #Serie A
 #v_url = 'https://understat.com/league/Serie_A/2014'
@@ -53,10 +53,10 @@ chrome_options.add_argument("--no-sandbox")
 #v_division = 'SP1'
 
 #Ligue 1
-v_url = 'https://understat.com/league/Ligue_1/2014'
+#v_url = 'https://understat.com/league/Ligue_1/2014'
 
-v_season = '2014_2015'
-v_division = 'F1'
+#v_season = '2014_2015'
+#v_division = 'F1'
 
 
 
@@ -70,6 +70,7 @@ browser.get(v_url)
 
 #set button to loop through weeks
 prev_button = browser.find_element_by_class_name('calendar-prev')
+next_button = browser.find_element_by_class_name('calendar-next')
 
 #manual week limiter
 num_weeks = 300
@@ -78,12 +79,16 @@ iter_week = 1
 #loop control is handled inside the loop
 do_loop = True
 last_loop = False
+loop_backwards = True
 
 
 #loop as long prev button is enabled
 while do_loop == True:
 
     v_dates = browser.find_elements_by_class_name('calendar-date-container')
+
+    #store, whether results for date
+    date_got_results = False
 
     #loop over date container
     for v_date in v_dates:
@@ -104,6 +109,8 @@ while do_loop == True:
             #get link match info, if match has already a result
             if v_match_info.get_attribute('data-isresult') == 'true':
                 v_match_href = v_match_info.get_attribute('href')
+
+                date_got_results = True
 
                 ####
                 # open match info site to read stats
@@ -183,29 +190,53 @@ while do_loop == True:
 
 
     #click button for next dates
-    prev_button.click()
-    iter_week = iter_week + 1
 
-    #end loop, when limiter is reached
-    if iter_week >= num_weeks:
-        do_loop = False
+    #get intial loop direction
+    if iter_week == 1 and not (prev_button.is_enabled()):
+        loop_backwards = False
+
+    elif iter_week == 1 and prev_button.is_enabled():
+        loop_backwards = True
+
+    #click to next page dependend on loop direction
+    if loop_backwards == True:
+        prev_button.click()
+        iter_week = iter_week + 1
+    else:
+        # ordering has changed -> next button has to be clicked
+        next_button.click()
+        iter_week = iter_week + 1
+
+    #check exit criteria
+    if loop_backwards == False:
+
+        #page got no more results -> stop looping
+        if date_got_results == False:
+            do_loop = False
+
+    else:
+
+        #end loop, when limiter is reached
+        if iter_week >= num_weeks:
+            do_loop = False
 
 
-    #Check loop criteria
-    #- as long more weeks for the season are existing -> button is enabled
-    #- first week in the season
-    if not(prev_button.is_enabled()) and last_loop == True:
-        do_loop = False
-    # when no more weeks are available -> last loop for last week
-    if not(prev_button.is_enabled()) and last_loop == False:
-        last_loop = True
-        print('last loop set')
+        #Check loop criteria
+        #- as long more weeks for the season are existing -> button is enabled
+        #- first week in the season
+        if not(prev_button.is_enabled()) and last_loop == True:
+            do_loop = False
+        # when no more weeks are available -> last loop for last week
+        if not(prev_button.is_enabled()) and last_loop == False:
+            last_loop = True
+            print('last loop set')
 
 
 browser.close()
 
 
 #import data frame to db
+#Con.execute('delete from understat_match_team_stats where division = ' + v_division + ' and season = ' + v_season)
 Con.import_from_iterable(df_data,'understat_match_team_stats')
 
 Con.close()
