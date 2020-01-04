@@ -17,8 +17,9 @@ drop table if exists stage.team_mapping;
 
 create table stage.team_mapping
 	(
-	FOOTBALL_DATA		varchar(100),
-	SQUAWKA 			varchar(100),
-	TRANSFERMARKT		varchar(100)
+	FOOTBALL_DATA			varchar(100),
+	SQUAWKA 				varchar(100),
+	TRANSFERMARKT			varchar(100),
+	UNDERSTAT				varchar(100)
 	)
 ;
