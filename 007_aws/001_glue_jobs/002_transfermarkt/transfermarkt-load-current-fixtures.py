@@ -22,7 +22,10 @@ tgt_file_name = 'transfermarkt/current-fixtures/current-fixtures.json'
 lst_divisions = [
             {"url" : "http://www.transfermarkt.de/2-bundesliga/startseite/wettbewerb/L2", "division" : "D2"},
             {"url" : "http://www.transfermarkt.de/2-bundesliga/startseite/wettbewerb/L1", "division" : "D1"},
-            {"url" : "http://www.transfermarkt.de/premier-league/startseite/wettbewerb/GB1", "division" : "E0"}
+            {"url" : "http://www.transfermarkt.de/premier-league/startseite/wettbewerb/GB1", "division" : "E0"},
+            {"url" : "http://www.transfermarkt.de/ligue-1/startseite/wettbewerb/FR1", "division" : "F1"},
+            {"url" : "http://www.transfermarkt.de/laliga/startseite/wettbewerb/ES1", "division" : "SP1"},
+            {"url" : "http://www.transfermarkt.de/serie-a/startseite/wettbewerb/IT1", "division" : "I1"}
              ]
 
 #v_url = 'http://www.transfermarkt.de/2-bundesliga/startseite/wettbewerb/L2'
