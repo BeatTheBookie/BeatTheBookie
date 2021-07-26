@@ -3,6 +3,8 @@ import urllib.request
 from bs4 import BeautifulSoup as bs
 from io import StringIO
 import pandas as pd
+from datetime import datetime
+
 
 
 #get aws client
@@ -76,18 +78,23 @@ for division in lst_divisions:
                 last_match_date =  match_date
             else:
                 match_date = last_match_date
+            
+            #check whether data is in the future
+            match_date_dt = datetime.strptime(match_date[0].text.strip(), '%d.%m.%Y')
+            
+            # only future matches get loaded
+            if match_date_dt > datetime.now():
+                #print(home_team[0].text.strip() + ' - ' + away_team[0].text.strip() + ' (' + match_date[0].text.strip() + ' )')
         
-            #print(home_team[0].text.strip() + ' - ' + away_team[0].text.strip() + ' (' + match_date[0].text.strip() + ' )')
-        
-            new_row = {'division':division["division"], 'match_date':match_date[0].text.strip(), 'home_team':home_team[0].text.strip(), 'away_team':away_team[0].text.strip()}
-            df_fixtures = df_fixtures.append(new_row, ignore_index=True)
+                new_row = {'division':division["division"], 'match_date':match_date[0].text.strip(), 'home_team':home_team[0].text.strip(), 'away_team':away_team[0].text.strip()}
+                df_fixtures = df_fixtures.append(new_row, ignore_index=True)
             
         
             i += 1
         
         j += 1
     
-    
+
 #df_data = pd.DataFrame(data)
 
 print(df_fixtures)
