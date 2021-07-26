@@ -13,12 +13,8 @@ v_file_prefix = 'football-data.co.uk/'
 
 v_base_url = 'https://www.football-data.co.uk/mmz4281/'
 
-<<<<<<< HEAD
 #lst_leagues = ["D1","D2","E0","F1","I1","SP1"]
 lst_leagues = ["D2"]
-=======
-lst_leagues = ["D1","D2","E0","F1","I1","SP1"]
->>>>>>> f2b77898b4238d70272a38c9f12fc285fbb393d3
 
 lst_seasons = [
 #            {"url_season" : "1112", "directory_season" : "2011_12"},
@@ -30,11 +26,7 @@ lst_seasons = [
 #            {"url_season" : "1718", "directory_season" : "2017_18"},
 #            {"url_season" : "1819", "directory_season" : "2018_19"},
 #            {"url_season" : "1920", "directory_season" : "2019_20"},
-<<<<<<< HEAD
             {"url_season" : "2122", "directory_season" : "2021_22"}
-=======
-            {"url_season" : "2021", "directory_season" : "2020_21"}
->>>>>>> f2b77898b4238d70272a38c9f12fc285fbb393d3
             ]
 
 
