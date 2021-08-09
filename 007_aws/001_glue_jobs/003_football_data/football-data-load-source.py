@@ -14,7 +14,7 @@ v_file_prefix = 'football-data.co.uk/'
 v_base_url = 'https://www.football-data.co.uk/mmz4281/'
 
 lst_leagues = ["D1","D2","E0","F1","I1","SP1"]
-#lst_leagues = ["D2","F1"]
+
 
 lst_seasons = [
 #            {"url_season" : "1112", "directory_season" : "2011_12"},
