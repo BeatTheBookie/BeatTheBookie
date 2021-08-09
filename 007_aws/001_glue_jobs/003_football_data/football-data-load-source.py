@@ -30,6 +30,10 @@ lst_seasons = [
             ]
 
 
+#
+# loop over season and leagues
+#
+
 import requests
 
 for season in lst_seasons:
