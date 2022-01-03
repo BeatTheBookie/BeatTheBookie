@@ -58,12 +58,12 @@ async def load_match_shots(league, season):
             
             #extract home match shots
             df_match_shots = pd.DataFrame(match_shots["h"])
-            df_match_shots = df_match_shots.append(match_shots["a"])
             
-            v_file_name = 'match-shots/' + season["directory_season"] + '/' + league + '/' + season["directory_season"] + '_' + league + '_' + fixture['id'] + '.json'  
-
-            print("writing file " + v_file_name)
-        
+            try:
+                df_match_shots = df_match_shots.append(match_shots["a"])
+            except IndexError:
+                print("sorry, no away shots for the fixture-id " + fixture['id'])
+            
             client.put_object(Body=bytes(df_match_shots.to_json(orient='records', lines=True).encode('UTF-8')), Bucket=v_bucket, Key=v_file_name)
     
 
